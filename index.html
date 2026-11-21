@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Prévia do Feed – Power-Up</title>
+<script src="https://p.trellocdn.com/power-up.min.js"></script>
+<script src="./config.js"></script>
+</head>
+<body>
+<script>
+  var C = window.PREVIA_CONFIG;
+  var ICONE = new URL('./icone.svg', location.href).href;
+  function abrir(t) {
+    return t.modal({ url: './grid.html', title: 'Prévia do feed', fullscreen: false, height: 860 });
+  }
+  TrelloPowerUp.initialize({
+    'board-buttons': function () {
+      return [{ icon: { dark: ICONE, light: ICONE }, text: 'Prévia do feed', callback: abrir, condition: 'always' }];
+    }
+  }, { appKey: C.appKey, appName: C.appName });
+</script>
+</body>
+</html>
